@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,13 @@ namespace LittleStore.Controllers
         //
         // GET: /Home/
 
+        LittleStoreContext db = new LittleStoreContext();
         public ActionResult Index()
         {
-            return View();
+
+            var products = (from u in db.Products select u).ToList();
+
+            return View(products);
         }
 
     }

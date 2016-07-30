@@ -1,13 +1,41 @@
-﻿@{
+﻿@model IEnumerable<LittleStore.Models.Product>
+<style>
+    .Product-Short-view {
+        width: 200px;
+        height: 300px;
+        background: #ccc;
+        padding: 5px;
+        border: solid 1px black;
+        float: left;
+        overflow: hidden;
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+    .Description {
+        overflow: hidden;
+    }
+</style>
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <div class="Product-Short-view">
+        <div><b>@Html.DisplayFor(modelItem => item.Name)</b></div>
 
-@Html.ActionLink("Login", "Login", "Account")
-<br />
-@Html.ActionLink("Logoff", "LogOff", "Account")
-<br />
-@Html.ActionLink("Registration", "Registration", "Account")
-<br />
-@Html.ActionLink("Products", "Index", "Product")
+        <div>
+            <img src=@item.Images.First().ImagePath width="200" height="155" alt="lorem"></div>
+
+        <div><b>@Html.DisplayFor(modelItem => item.Price)</b></div>
+
+        <div>@Html.DisplayFor(modelItem => item.DescriptionShort)</div>
+
+        <div>
+            <p class="Description">@Html.DisplayFor(modelItem => item.Description)</p>
+
+        </div>
+
+    </div>
+}

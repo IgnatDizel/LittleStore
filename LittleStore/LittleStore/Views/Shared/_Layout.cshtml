@@ -6,82 +6,103 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-        <style>
-        #header 
-        {
-            width: 1100px; 
-            height: 100px;
-            background: #ccc;
+    <style>
+        #header {
+            height: 50px;
             margin: auto;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #8080FF;
+            width: 100%;
         }
-        #menu 
-        {
-            width: 1100px; 
+
+        #menu {
             height: 30px;
-            background: #808080;
             margin: auto;
+            position: fixed;
+            left: 0;
+            top: 50px;
+            background: #8080A0;
+            width: 100%;
         }
-        ul.hr 
-        {
+
+        ul.hr {
             margin: 0;
             padding: 6px;
         }
-        ul.hr li 
-        {
-            display: inline;
-            margin-right: 0px;
-            border: 1px solid #000;
-            padding: 5px;
-        }
-        a.classname
-        {
+
+            ul.hr li {
+                display: inline;
+                margin-right: 0px;
+                border: 1px solid #000;
+                padding: 5px;
+            }
+
+        a.classname {
             display: block;
             width: 150px;
             height: 150px;
         }
-        #body 
-        {
-            width: 1100px; 
-            background: #8080FF;
-            margin: auto;
-            bottom: auto;
-        }
-        #footer 
-        {
-            width: 1100px; 
-            height: 100px;
-            background: #ccc;
-            margin: auto;
+
+        #left-colum {
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 80px;
+            background: #30b8Fa;
+            width: 150px;
         }
 
-        .authorization
-        {
-            float:right;
+        #body {
+            width: 80%;
+            bottom: auto;
+            margin-top: 80px;
+            margin-left: 200px;
+        }
+
+        #footer {
+            height: 50px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            background: #39b54a;
+            width: 100%;
+        }
+
+        .authorization {
+            float: right;
             display: inline;
             padding: 5px;
         }
     </style>
 </head>
 <body>
-    <div id ="header">
+    <div id="header">
         <ul>
-            <li class="authorization">@Html.ActionLink("Sign in", "Login", "Login")</li>
-            <li class="authorization">@Html.ActionLink("Registration", "SignUp", "Registration")</li>
+            <li class="authorization">@Html.ActionLink("Login", "Login", "Account")</li>
+            <li class="authorization">@Html.ActionLink("Registration", "Registration", "Account")</li>
+            <li class="authorization">@Html.ActionLink("Logoff", "LogOff", "Account")</li>
         </ul>
     </div>
-    <div id ="menu">
+    <div id="menu">
         <ul class="hr">
             <li>@Html.ActionLink("Home", "Index")</li>
             <li>@Html.ActionLink("Category", "Category")</li>
             <li>@Html.ActionLink("Delivery", "Delivery")</li>
             <li>@Html.ActionLink("About as", "AboutAs")</li>
-            
+
         </ul>
     </div>
-    <div id ="body">
+    <div id="left-colum">
+        123
+    </div>
+    <div id="body">
         @RenderBody()
     </div>
-    <div id ="footer">
+
+
+    <div id="footer">
         4
     </div>
 
