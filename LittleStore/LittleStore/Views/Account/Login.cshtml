@@ -1,0 +1,51 @@
+﻿@model LittleStore.Models.LogViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Вход в систему</h2>
+    <p>Введите свой логин и пароль для входа в систему</p>
+     
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+     
+        <fieldset>
+            <legend>Войти в систему</legend>
+     
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName)
+            </div>
+     
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+     
+            <div class="editor-label">
+                @Html.LabelFor(model => model.RememberMe)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.RememberMe)
+            </div>
+     
+            <p>
+                <input type="submit" value="Войти" />
+            </p>
+        </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
