@@ -21,5 +21,16 @@ namespace LittleStore.Controllers
             return View(products);
         }
 
+        public ActionResult ProductDetails(int id)
+        {
+
+            var product = (from u in db.Products 
+                            where u.ProductId == id
+                            select u).First();
+
+            return View(product);
+        }
+
+
     }
 }

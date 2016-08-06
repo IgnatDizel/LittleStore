@@ -123,19 +123,25 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EditImage\AddDefaultImage.cs" />
+    <Compile Include="Models\EditImage\CheckValidImage.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\LittleStoreContext.cs" />
     <Compile Include="Models\LogViewModel.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\viewModel\AddImageViewModel.cs" />
+    <Compile Include="Models\viewModel\ProductCraeteViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\HelpdeskRoleProvider.cs" />
+    <Compile Include="Providers\LittleStoreRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\LittleStoreDb.mdf" />
@@ -230,6 +236,18 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Products.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Admin\EditImages.cshtml" />
+    <Content Include="Views\Admin\AddImage.cshtml" />
+    <Content Include="Views\Product\ProductDetails.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\AddImage.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<LittleStore.Models.Product>
+﻿@using LittleStore.Models.EditImage
+@model IEnumerable<LittleStore.Models.Product>
 <style>
     .Product-Short-view {
         width: 200px;
@@ -12,6 +13,7 @@
         margin-left: 40px;
         margin-bottom: 20px;
     }
+
     .Description {
         overflow: hidden;
     }
@@ -22,20 +24,34 @@
 
 @foreach (var item in Model)
 {
-    <div class="Product-Short-view">
-        <div><b>@Html.DisplayFor(modelItem => item.Name)</b></div>
+    if (item.Images.Count == 0)
+    {
+        item.Images.Add(AddDefaultImage.AddDefImg(item.ProductId));
+    }
+        <a href="~/Product/ProductDetails/@item.ProductId">
 
-        <div>
-            <img src=@item.Images.First().ImagePath width="200" height="155" alt="lorem"></div>
+            <div class="Product-Short-view">
+                <div>
+                    <b>@Html.DisplayFor(modelItem => item.Name)</b>
+                </div>
 
-        <div><b>@Html.DisplayFor(modelItem => item.Price)</b></div>
+                <div>
+                    <img src=@item.Images.First().ImagePath width="200" height="155" alt="lorem">
+                </div>
 
-        <div>@Html.DisplayFor(modelItem => item.DescriptionShort)</div>
+                <div>
+                    <b>@Html.DisplayFor(modelItem => item.Price)</b>
+                </div>
 
-        <div>
-            <p class="Description">@Html.DisplayFor(modelItem => item.Description)</p>
+                <div>
+                    @Html.DisplayFor(modelItem => item.DescriptionShort)
 
-        </div>
+                </div>
 
-    </div>
+                <div>
+                    <p class="Description">@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+            </div>
+        </a>
+   
 }

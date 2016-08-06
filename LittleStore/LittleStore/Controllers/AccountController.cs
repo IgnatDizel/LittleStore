@@ -31,7 +31,7 @@ namespace LittleStore.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "User");
+                        return RedirectToAction("Index", "Home");
                     }
                 }
                 else
@@ -65,7 +65,7 @@ namespace LittleStore.Controllers
                 db.Users.Add(user);
                 db.SaveChanges();
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         private bool ValidateUser(string login, string password)

@@ -59,6 +59,7 @@
             bottom: auto;
             margin-top: 80px;
             margin-left: 200px;
+            margin-bottom: 50px;
         }
 
         #footer {
@@ -83,14 +84,19 @@
             <li class="authorization">@Html.ActionLink("Login", "Login", "Account")</li>
             <li class="authorization">@Html.ActionLink("Registration", "Registration", "Account")</li>
             <li class="authorization">@Html.ActionLink("Logoff", "LogOff", "Account")</li>
+            @if (User.IsInRole("admin"))
+            { 
+                <li class="authorization">@Html.ActionLink("Admin", "Index", "Admin")</li>
+            }
+
         </ul>
     </div>
     <div id="menu">
         <ul class="hr">
-            <li>@Html.ActionLink("Home", "Index")</li>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("Category", "Category")</li>
             <li>@Html.ActionLink("Delivery", "Delivery")</li>
-            <li>@Html.ActionLink("About as", "AboutAs")</li>
+            <li>@Html.ActionLink("About as", "AboutAs", "Home")</li>
 
         </ul>
     </div>

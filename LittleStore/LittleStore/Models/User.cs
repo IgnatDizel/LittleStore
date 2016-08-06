@@ -36,7 +36,8 @@ namespace LittleStore.Models
         [Required(ErrorMessage = "Введите Статус")]
         [Display(Name = "Статус")]
         public int RoleId { get; set; }
-        public Role Role { get; set; }
+
+        public virtual Role Role { get; set; }
 
     }
 }

@@ -1,0 +1,108 @@
+﻿@model LittleStore.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <div>
+            <legend>Product</legend>
+
+            @Html.HiddenFor(model => model.ProductId)
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Price)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DescriptionShort)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.DescriptionShort)
+                @Html.ValidationMessageFor(model => model.DescriptionShort)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description)
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CategoryID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CategoryID)
+                @Html.ValidationMessageFor(model => model.CategoryID)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </div>
+    </fieldset>
+}
+
+<p>
+    @Html.ActionLink("Add image", "AddImage", new {productId = Model.ProductId})
+</p>
+<table>
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Images.First().ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Images) {
+    <tr>
+        <td>
+            <img src=@item.ImagePath width="200" height="155" alt="lorem">
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImagePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductId)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteImage", new {imageid = item.ImageId, productId = item.ProductId})
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "ProductDetails", new { id = Model.ProductId })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

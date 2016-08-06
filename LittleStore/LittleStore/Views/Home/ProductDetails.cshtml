@@ -1,0 +1,41 @@
+﻿@model LittleStore.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetails";
+}
+
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="Product-Short-view">
+        <div>
+            <b>@Html.DisplayFor(modelItem => Model.Name)</b>
+        </div>
+
+        <div>
+            <img src = @Model.Images.First().ImagePath width="450" height="300" alt="lorem">
+        </div>
+
+        <div>
+            <b>@Html.DisplayFor(modelItem => Model.Price)</b>
+        </div>
+
+        <div>
+            @Html.DisplayFor(modelItem => Model.DescriptionShort)
+        </div>
+
+        <div>
+            <p class="Description">@Html.DisplayFor(modelItem => Model.Description)</p>
+        </div>
+
+
+        @foreach (var img in Model.Images.Skip(1))
+        {
+            <img src = @img.ImagePath width="450" height="300">
+        }
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
